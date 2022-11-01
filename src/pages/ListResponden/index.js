@@ -14,28 +14,34 @@ export default function ListResponden() {
     useEffect(() => {
         fetchUser()
     }, [])
-    
-  return (
-    <ScrollView className="flex-1 bg-white">
-        <View >
-            <Text className="font-['Poppins-Medium'] text-lg text-[#464851] m-8" >List Responden</Text>
-            {data.map((item,i)=>{
-                if(i%2 === 1){
-                return(
-                    <CardList name={item.nama} umur={item.usia} isEven={false}/>
-                )
-                }else{
+  if(data != null){
+      return (
+        <ScrollView className="flex-1 bg-white">
+            <View >
+                <Text className="font-['Poppins-Medium'] text-lg text-[#464851] m-8" >List Responden</Text>
+                {data.map((item,i)=>{
+                    if(i%2 === 1){
                     return(
-                        <CardList name={item.nama} umur={item.usia} isEven={true}/>
+                        <CardList name={item.nama} umur={item.usia} isEven={false}/>
                     )
-                }
-            })}
+                    }else{
+                        return(
+                            <CardList name={item.nama} umur={item.usia} isEven={true}/>
+                        )
+                    }
+                })}
+            
+            </View>
+        </ScrollView>
         
-        </View>
-    </ScrollView>
     
+      )
 
-  )
+  }else{
+    return(
+        alert("No Connection")
+    )
+  }
 }
 
 const styles = StyleSheet.create({})

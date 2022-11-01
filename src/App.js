@@ -5,6 +5,7 @@ import FormResponden from './pages/FormResponden';
 import FormKuisioner from './pages/FormKuisioner';
 import SuccesPage from './pages/SuccesPage';
 import ListResponden from './pages/ListResponden';
+import DetailResponden from './pages/DetailResponden';
 import {
   RecoilRoot,
   atom,
@@ -22,7 +23,11 @@ export default function App() {
           screenOptions={{
             headerShown: false
           }}>
-             <Stack.Screen
+          <Stack.Screen
+            name="DetailResponden"
+            component={DetailResponden}
+          />
+          <Stack.Screen
             name="ListResponden"
             component={ListResponden}
           />
