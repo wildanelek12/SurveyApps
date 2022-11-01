@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import FormResponden from './pages/FormResponden';
 import FormKuisioner from './pages/FormKuisioner';
 import SuccesPage from './pages/SuccesPage';
+import ListResponden from './pages/ListResponden';
 import {
   RecoilRoot,
   atom,
@@ -21,14 +22,19 @@ export default function App() {
           screenOptions={{
             headerShown: false
           }}>
-          <Stack.Screen
-            name="SuccesPage"
-            component={SuccesPage}
+             <Stack.Screen
+            name="ListResponden"
+            component={ListResponden}
           />
           <Stack.Screen
             name="FormResponden"
             component={FormResponden}
           />
+          <Stack.Screen
+            name="SuccesPage"
+            component={SuccesPage}
+          />
+ 
           <Stack.Screen
             name="FormKuisioner"
             component={FormKuisioner}

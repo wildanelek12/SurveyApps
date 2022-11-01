@@ -5,6 +5,7 @@ import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
 import { getQuestion } from '../../recoil/selector';
 import { currentIndexState, idRespondenState } from '../../recoil/atom';
 import axios from 'axios';
+import { useNavigation } from '@react-navigation/native';
 
 
 export default function FormKuisioner() {
@@ -16,6 +17,7 @@ export default function FormKuisioner() {
     const [totalQuestion, setTotalQuestions] = useState()
     const [jawaban, setJawaban] = useState("")
     const responden_id = useRecoilValue(idRespondenState);
+    const navigation = useNavigation();
 
 
     const fetchUser = async () => {
@@ -38,6 +40,7 @@ export default function FormKuisioner() {
         if (currentIndex + 1 === totalQuestion) {
             alert('last')
             setIdQuestion(questions[currentIndex].id)
+            navigation.navigate("SuccesPage")
         } else {
             setIsSelected(0)
             setCurrentIndex(currentIndex + 1)
