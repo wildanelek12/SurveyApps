@@ -58,31 +58,31 @@ export default function FormResponden() {
                 <Text className="text-[#525263] font-['Poppins-SemiBold'] text-lg text-center">Formulir Identitas Responden</Text>
       
                 <View className="flex-col px-5 mt-4">
-                    <Text className="font-['Poppins-Medium'] text-[#929698] mt-1">Nama Lengkap</Text>
+                    <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">Nama Lengkap</Text>
                     <TextInput
                         className="rounded-lg border-2 border-slate-300 px-4" value={nama} onChangeText={(value)=> setNama(value)} 
                     />
-                    <Text className="font-['Poppins-Medium'] text-[#929698] mt-1 ">No Handphone</Text>
+                    <Text className="font-['Poppins-Medium'] text-[#525263] mt-1 ">No Handphone</Text>
                     <TextInput
                         className="rounded-lg border-2 border-slate-300 px-4" value={handphone} onChangeText={(value)=> setHandphone(value)}
                     />
-                    <Text className="font-['Poppins-Medium'] text-[#929698] mt-1">NIP (Opsional)</Text>
+                    <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">NIP (Opsional)</Text>
                     <TextInput
                         className="rounded-lg border-2 border-slate-300 px-4" value={nip} onChangeText={(value)=> setNip(value)}
                     />
-                    <Text className="font-['Poppins-Medium'] text-[#929698] mt-1">Usia</Text>
+                    <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">Usia</Text>
                     <TextInput
                         className="rounded-lg border-2 border-slate-300 px-4" value={usia} onChangeText={(value)=> setUsia(value)}
                     />
-                    <Text className="font-['Poppins-Medium'] text-[#929698] mt-1">Pendidikan Terakhir</Text>
+                    <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">Pendidikan Terakhir</Text>
                     <TextInput
                         className="rounded-lg border-2 border-slate-300 px-4" value={pendidikan} onChangeText={(value)=> setPendidikan(value)}
                     />
-                    <Text className="font-['Poppins-Medium'] text-[#929698] mt-1">Instansi</Text>
+                    <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">Instansi</Text>
                     <TextInput
                         className="rounded-lg border-2 border-slate-300 px-4" value={instansi} onChangeText={(value)=> setInstansi(value)}
                     />
-                    <Text className="font-['Poppins-Medium'] text-[#929698] mt-1">Jabatan</Text>
+                    <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">Jabatan</Text>
                     <TextInput
                         className="rounded-lg border-2 border-slate-300 px-4" value={jabatan} onChangeText={(value)=> setJabatan(value)}
                     />
