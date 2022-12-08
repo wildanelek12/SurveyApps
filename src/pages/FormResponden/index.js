@@ -14,20 +14,11 @@ export default function FormResponden() {
     const [pendidikan, setPendidikan] = useState("");
     const [instansi, setInstansi] = useState("");
     const [jabatan, setJabatan] = useState("");
-    const [idResponden,setIdResponden] = useRecoilState(idRespondenState);
+    const [idResponden, setIdResponden] = useRecoilState(idRespondenState);
     const navigation = useNavigation();
 
-    const getResponden = async () => {
-        try {
-            const res = await axios.get("http://10.0.2.2:8000/api/respondens");
-            console.log(res.data.data.respondens)
-            setRespondens(res.data.data.respondens)
-        } catch (error) {
-            alert(error)
-        }
-    };
 
-    const submit = () =>{
+    const submit = () => {
         const data = {
             nama,
             handphone,
@@ -37,54 +28,49 @@ export default function FormResponden() {
             instansi,
             jabatan
         }
-        console.log("Data sebelum dikirim ",data );
-        axios.post('http://10.0.2.2:8000/api/respondens',data)
+        console.log("Data sebelum dikirim ", data);
+        axios.post('http://survey.wildanromiza.com/api/respondens', data)
             .then(res => {
                 setIdResponden(res.data.data.respondens.id)
                 navigation.navigate('FormKuisioner')
-            }).catch ((error)=>{
+            }).catch((error) => {
                 console.log(error);
             })
     }
 
-    useEffect(() => {
-        getResponden()
-    }, []);
-
     return (
-
         <ScrollView>
             <View className="justify-center flex-1 mt-8">
                 <Text className="text-[#525263] font-['Poppins-SemiBold'] text-lg text-center">Formulir Identitas Responden</Text>
-      
+
                 <View className="flex-col px-5 mt-4">
                     <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">Nama Lengkap</Text>
                     <TextInput
-                        className="rounded-lg border-2 border-slate-300 px-4" value={nama} onChangeText={(value)=> setNama(value)} 
+                        className="rounded-lg border-2 border-slate-300 px-4" value={nama} onChangeText={(value) => setNama(value)}
                     />
                     <Text className="font-['Poppins-Medium'] text-[#525263] mt-1 ">No Handphone</Text>
                     <TextInput
-                        className="rounded-lg border-2 border-slate-300 px-4" value={handphone} onChangeText={(value)=> setHandphone(value)}
+                        className="rounded-lg border-2 border-slate-300 px-4" value={handphone} onChangeText={(value) => setHandphone(value)}
                     />
                     <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">NIP (Opsional)</Text>
                     <TextInput
-                        className="rounded-lg border-2 border-slate-300 px-4" value={nip} onChangeText={(value)=> setNip(value)}
+                        className="rounded-lg border-2 border-slate-300 px-4" value={nip} onChangeText={(value) => setNip(value)}
                     />
                     <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">Usia</Text>
                     <TextInput
-                        className="rounded-lg border-2 border-slate-300 px-4" value={usia} onChangeText={(value)=> setUsia(value)}
+                        className="rounded-lg border-2 border-slate-300 px-4" value={usia} onChangeText={(value) => setUsia(value)}
                     />
                     <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">Pendidikan Terakhir</Text>
                     <TextInput
-                        className="rounded-lg border-2 border-slate-300 px-4" value={pendidikan} onChangeText={(value)=> setPendidikan(value)}
+                        className="rounded-lg border-2 border-slate-300 px-4" value={pendidikan} onChangeText={(value) => setPendidikan(value)}
                     />
                     <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">Instansi</Text>
                     <TextInput
-                        className="rounded-lg border-2 border-slate-300 px-4" value={instansi} onChangeText={(value)=> setInstansi(value)}
+                        className="rounded-lg border-2 border-slate-300 px-4" value={instansi} onChangeText={(value) => setInstansi(value)}
                     />
                     <Text className="font-['Poppins-Medium'] text-[#525263] mt-1">Jabatan</Text>
                     <TextInput
-                        className="rounded-lg border-2 border-slate-300 px-4" value={jabatan} onChangeText={(value)=> setJabatan(value)}
+                        className="rounded-lg border-2 border-slate-300 px-4" value={jabatan} onChangeText={(value) => setJabatan(value)}
                     />
                 </View>
                 <TouchableOpacity className="px-6 my-5 bg-[#365ABE] py-3 mx-10 rounded-[10px]" onPress={submit}>

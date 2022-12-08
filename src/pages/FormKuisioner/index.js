@@ -1,4 +1,4 @@
-import { View, Text, Touchable, TouchableOpacity } from 'react-native'
+import { View, Text, Touchable, TouchableOpacity, ActivityIndicator } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import RadioButton from '../../component/RadioButton'
 import { useRecoilState, useRecoilValue, useResetRecoilState } from 'recoil';
@@ -22,7 +22,7 @@ export default function FormKuisioner() {
 
     const fetchUser = async () => {
         setLoading(true)
-        const response = await axios.get('http://10.0.2.2:8000/api/questions');
+        const response = await axios.get('http://survey.wildanromiza.com/api/questions');
         setQuestions(response.data.data.questions)
         setTotalQuestions(response.data.data.total)
         setLoading(false)
@@ -44,29 +44,32 @@ export default function FormKuisioner() {
         } else {
             setIsSelected(0)
             setCurrentIndex(currentIndex + 1)
-            setIdQuestion(questions[currentIndex+1].id)
+            setIdQuestion(questions[currentIndex + 1].id)
         }
         const data = {
             responden_id,
             question_id,
             jawaban
         }
-        axios.post('http://10.0.2.2:8000/api/answers', data)
+        axios.post('http://survey.wildanromiza.com/api/answers', data)
             .then(res => {
                 setJawaban("")
-                     
+
             }).catch((error) => {
                 console.log(error);
             })
 
-        
+
         console.log(currentIndex)
-        
+
     }
 
     if (loading) {
         return (
-            <Text>Loading</Text>
+            <View className="justify-center flex-1 items-center">
+                <ActivityIndicator size="large" />
+                <Text>Loading..</Text>
+            </View>
         )
     } else {
         return (
@@ -81,23 +84,23 @@ export default function FormKuisioner() {
 
                 <View className="mt-2">
                     <TouchableOpacity onPress={
-                        () => {setIsSelected(1); setJawaban("Sangat Tidak Diperlukan") }}>
+                        () => { setIsSelected(1); setJawaban("Sangat Tidak Diperlukan") }}>
                         <RadioButton name="Sangat Tidak Diperlukan" isSelected={isSelected === 1 ? true : false} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={
-                        () => {setIsSelected(2); setJawaban("Tidak Diperlukan") }}>
+                        () => { setIsSelected(2); setJawaban("Tidak Diperlukan") }}>
                         <RadioButton name="Tidak Diperlukan" isSelected={isSelected === 2 ? true : false} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={
-                        () => {setIsSelected(3); setJawaban("Kurang Diperlukan") }}>
+                        () => { setIsSelected(3); setJawaban("Kurang Diperlukan") }}>
                         <RadioButton name="Kurang Diperlukan" isSelected={isSelected === 3 ? true : false} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={
-                        () => {setIsSelected(4); setJawaban("Diperlukan") }}>
+                        () => { setIsSelected(4); setJawaban("Diperlukan") }}>
                         <RadioButton name="Diperlukan" isSelected={isSelected === 4 ? true : false} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={
-                        () => {setIsSelected(5); setJawaban("Sangat Diperlukan") }}>
+                        () => { setIsSelected(5); setJawaban("Sangat Diperlukan") }}>
                         <RadioButton name="Sangat Diperlukan" isSelected={isSelected === 5 ? true : false} />
                     </TouchableOpacity>
                 </View>

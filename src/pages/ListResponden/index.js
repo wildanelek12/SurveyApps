@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import CardList from '../../component/CardList'
 import axios from 'axios';
@@ -8,8 +8,9 @@ import { ScrollView } from 'react-native-gesture-handler';
 export default function ListResponden() {
     const [data, setData] = useState();
     const fetchUser = async () => {
-        const response = await axios.get('http://10.0.2.2:8000/api/respondens');
+        const response = await axios.get('http://survey.wildanromiza.com/api/respondens');
         setData(response.data.data.respondens)
+        
     };
     useEffect(() => {
         fetchUser()
@@ -39,7 +40,10 @@ export default function ListResponden() {
 
     } else {
         return (
-            <Text>Loading</Text>
+            <View className="justify-center flex-1 items-center">
+                <ActivityIndicator size="large" />
+                <Text>Loading..</Text>
+            </View>
         )
     }
 }

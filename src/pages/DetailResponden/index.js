@@ -19,11 +19,11 @@ export default function DetailResponden({ route, navigation }) {
   const [isLoading, setLoading] = useState(true);
   const [dataJawaban, setDataJawaban] = useState("");
   const fetchAnswer = async () => {
-    const response = await axios.get('http://10.0.2.2:8000/api/respondens/' + itemId)
-    .then(response =>{
-      setDataJawaban(response.data.data.respondens)
-      setLoading(false)
-    })
+    const response = await axios.get('http://survey.wildanromiza.com/api/respondens/' + itemId)
+      .then(response => {
+        setDataJawaban(response.data.data.respondens)
+        setLoading(false)
+      })
 
   };
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function DetailResponden({ route, navigation }) {
         <View className="mt-4">
           {dataJawaban.map((item, i) => {
             return (
-              <CardJawaban no={i+1} jawaban={item.jawaban} tipe={item.tipe} soal={item.pertanyaan} />
+              <CardJawaban no={i + 1} jawaban={item.jawaban} tipe={item.tipe} soal={item.pertanyaan} />
             )
           })}
 
