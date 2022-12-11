@@ -14,6 +14,7 @@ import {
   useRecoilState,
   useRecoilValue,
 } from 'recoil';
+import SelectModelPage from './pages/SelectModelPage';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -24,6 +25,10 @@ export default function App() {
           screenOptions={{
             headerShown: false
           }}>
+           <Stack.Screen
+            name="SelectModelPage"
+            component={SelectModelPage}
+          />
           <Stack.Screen
             name="WelcomePage"
             component={WelcomePage}

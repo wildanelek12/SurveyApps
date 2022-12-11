@@ -75,7 +75,7 @@ export default function FormKuisioner() {
         return (
             <View className="flex p-10">
                 <View className="flex-row ">
-                    <Text className="flex-1 text-left font-['Poppins-Medium'] text-[#929698]">{currentIndex + 1}/40</Text>
+                    <Text className="flex-1 text-left font-['Poppins-Medium'] text-[#929698]">{currentIndex + 1}/{totalQuestion}</Text>
                     <Text className="flex-1 text-right font-['Poppins-SemiBold'] text-[#929698]">Context</Text>
                 </View>
                 <Text className="text-[#151522] font-['Poppins-Regular'] text-justify text-base mt-2">
@@ -84,6 +84,7 @@ export default function FormKuisioner() {
 
                 <View className="mt-2">
                     <TouchableOpacity onPress={
+<<<<<<< Updated upstream
                         () => { setIsSelected(1); setJawaban("Sangat Tidak Diperlukan") }}>
                         <RadioButton name="Sangat Tidak Diperlukan" isSelected={isSelected === 1 ? true : false} />
                     </TouchableOpacity>
@@ -102,6 +103,26 @@ export default function FormKuisioner() {
                     <TouchableOpacity onPress={
                         () => { setIsSelected(5); setJawaban("Sangat Diperlukan") }}>
                         <RadioButton name="Sangat Diperlukan" isSelected={isSelected === 5 ? true : false} />
+=======
+                        () => {setIsSelected(1); setJawaban("Sangat Tidak Diperlukan") }}>
+                        <RadioButton name="Sangat Tidak Diperlukan" isSelected={isSelected === 1 } />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={
+                        () => {setIsSelected(2); setJawaban("Tidak Diperlukan") }}>
+                        <RadioButton name="Tidak Diperlukan" isSelected={isSelected === 2 } />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={
+                        () => {setIsSelected(3); setJawaban("Kurang Diperlukan") }}>
+                        <RadioButton name="Kurang Diperlukan" isSelected={isSelected === 3 } />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={
+                        () => {setIsSelected(4); setJawaban("Diperlukan") }}>
+                        <RadioButton name="Diperlukan" isSelected={isSelected === 4 } />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={
+                        () => {setIsSelected(5); setJawaban("Sangat Diperlukan") }}>
+                        <RadioButton name="Sangat Diperlukan" isSelected={isSelected === 5 } />
+>>>>>>> Stashed changes
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity className="px-6 my-5 bg-[#365ABE] py-3  rounded-[10px]" onPress={submit}>
