@@ -25,13 +25,14 @@ export default function App() {
           screenOptions={{
             headerShown: false
           }}>
-           <Stack.Screen
-            name="SelectModelPage"
-            component={SelectModelPage}
-          />
+     
           <Stack.Screen
             name="WelcomePage"
             component={WelcomePage}
+          />
+          <Stack.Screen
+            name="SelectModelPage"
+            component={SelectModelPage}
           />
           <Stack.Screen
             name="ListResponden"

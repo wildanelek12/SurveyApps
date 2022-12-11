@@ -9,15 +9,19 @@ export default function ListResponden() {
     const [data, setData] = useState();
     const fetchUser = async () => {
         const response = await axios.get('http://survey.wildanromiza.com/api/respondens');
+        const {data} = await response.data;
         setData(response.data.data.respondens)
-        
+        console.log('====================================');
+        console.log(data);
+        console.log('====================================');
+
     };
     useEffect(() => {
         fetchUser()
     }, [])
     if (data != null) {
         return (
-            <ScrollView className="flex-1 bg-white">
+            <ScrollView className="flex bg-white">
                 <View >
                     <Text className="font-['Poppins-Medium'] text-lg text-[#464851] m-8" >List Responden</Text>
                     {data.map((item, i) => {

@@ -38,17 +38,10 @@ export default function FormResponden() {
             })
     }
 
-<<<<<<< Updated upstream
-    return (
-=======
-    useEffect(() => {
-        getResponden()
-    }, []);
 
 
     return (
         <>
->>>>>>> Stashed changes
         <ScrollView>
             <View className="justify-center flex-1 mt-8">
                 <Text className="text-[#525263] font-['Poppins-SemiBold'] text-lg text-center">Formulir Identitas Responden</Text>
